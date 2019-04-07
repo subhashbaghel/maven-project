@@ -18,7 +18,7 @@ pipeline {
                                     echo "Publish Junit Report"
                                     sh label: '', script: '''**/target/surefire-reports/*.xml'''
                                     echo " Publish checkstyle Report"
-                                    sh label: '', script: '''checkstyle:checkstyle'''
+                                    sh label: '', script: '''mvn clean checkstyle:checkstyle'''
                                 }
                             }
             }
