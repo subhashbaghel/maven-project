@@ -25,11 +25,16 @@ pipeline {
             stage ('Deploy-test') {
                 steps {
                     echo "This is Deploy-test"
+                    build 'dep-test'
                 }
             }
-            stage ('QA') {
+            stage ('Producation') {
                 steps {
-                    echo "This is QA"
+                    echo "This is Producation"
+                    timeout(time: 60, unit: 'SECONDS' {
+                        input 'do you want to deploy  ?'
+                    }
+                    build 'dev-test'
                 }
             }
         }
