@@ -8,7 +8,7 @@ pipeline {
             stage ('Build') {
                 steps {
                     echo "This is Build "
-                    sh label: '', script: '''mvn clean package'''
+                    sh label: '', script: '''mvn clean package checkstyle:checkstyle'''
                                     
                             }
                             post {
@@ -16,9 +16,9 @@ pipeline {
                                     echo "Archive Artifacts"
                                     archive '**/*.war'
                                     echo "Publish Junit Report"
-                                    sh label: '', script: '''**/target/surefire-reports/*.xml'''
+                                    junit '**/target/surefire-reports/*.xml'
                                     echo " Publish checkstyle Report"
-                                    sh label: '', script: '''mvn clean checkstyle:checkstyle'''
+                                    checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
                                 }
                             }
             }
