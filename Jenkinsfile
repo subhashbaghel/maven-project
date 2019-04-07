@@ -7,7 +7,7 @@ pipeline {
         stages {
             stage ('Build') {
                 steps {
-                    echo "This is Build"
+                    echo "This is Build "
                     sh label: '', script: '''mvn clean package'''
                                     
                             }
