@@ -34,7 +34,7 @@ pipeline {
                     timeout(time: 60, unit: 'SECONDS' {
                         input 'do you want to deploy  ?'
                     }
-                    build 'dev-test'
+                    build 'dep-test'
                 }
             }
         }
