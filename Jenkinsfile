@@ -25,7 +25,7 @@ pipeline {
             stage ('Deploy-test') {
                 steps {
                     echo "This is Deploy-test"
-                    build 'dep-test'
+                    build 'java-deploy'
                 }
             }
             stage ('Producation') {
@@ -34,7 +34,7 @@ pipeline {
                     timeout(time: 60, unit: 'SECONDS' {
                         input 'do you want to deploy  ?'
                     }
-                    build 'dep-test'
+                    build 'dev-test'
                 }
             }
         }
