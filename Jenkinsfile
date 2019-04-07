@@ -28,7 +28,7 @@ pipeline {
                     build 'java-deploy'
                 }
             }
-            stage ('Producation') {
+            stage ('Producation') { 
                 steps {
                     echo "This is Producation"
                     timeout(time: 60, unit: 'SECONDS' {
